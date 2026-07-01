@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Comfy Chaos — Clarity in Complexity</title>
+<meta name="description" content="Comfy Chaos is a software development studio that turns messy, real-world operations into clean, well-crafted software. Clarity in complexity." />
+<meta name="theme-color" content="#05060c" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<!-- Open Graph -->
+<meta property="og:title" content="Comfy Chaos — Clarity in Complexity" />
+<meta property="og:description" content="A software studio building practical, well-crafted tools for real-world operations." />
+<meta property="og:image" content="assets/logo-full.png" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ---- logo palette ---- */
+    --cyan:#22c7f5;
+    --sky:#38bdf8;
+    --blue:#3b6bff;
+    --indigo:#4b57f0;
+    --violet:#6d3cf2;
+    --purple:#7c3aed;
+    --grape:#5b21b6;
+    --grad:linear-gradient(135deg,var(--cyan) 0%,var(--blue) 45%,var(--violet) 100%);
+    --grad-soft:linear-gradient(135deg,rgba(34,199,245,.16),rgba(124,58,237,.16));
+
+    --bg:#05060c;
+    --bg-2:#080a14;
+    --panel:rgba(255,255,255,.03);
+    --panel-brd:rgba(140,160,255,.12);
+    --panel-brd-hi:rgba(90,180,255,.35);
+
+    --ink:#f2f5ff;
+    --ink-2:#b7c0dc;
+    --ink-3:#8791b0;
+    --ink-4:#5a6485;
+
+    --radius:18px; --radius-s:12px;
+    --font:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --display:'Space Grotesk',var(--font);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+  /* ===== ambient background glows ===== */
+  .aura{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+  .aura::before,.aura::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .aura::before{width:640px;height:640px;top:-220px;right:-160px;background:radial-gradient(circle,rgba(34,199,245,.42),transparent 68%)}
+  .aura::after{width:620px;height:620px;bottom:-260px;left:-180px;background:radial-gradient(circle,rgba(124,58,237,.42),transparent 68%)}
+  .grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(120,150,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.045) 1px,transparent 1px);
+    background-size:46px 46px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%)}
+
+  /* ===== header ===== */
+  header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
+    background:rgba(5,6,12,.72);border-bottom:1px solid rgba(140,160,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:34px;width:auto;filter:drop-shadow(0 4px 14px rgba(59,107,255,.5))}
+  .brand-name{font-family:var(--display);font-weight:700;font-size:1.12rem;letter-spacing:.06em}
+  .nav-links{display:flex;gap:30px;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink-3);transition:color .16s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{padding:9px 18px;border-radius:99px;font-weight:600;font-size:.9rem;
+    background:var(--grad);color:#fff;box-shadow:0 6px 20px rgba(75,87,240,.4);transition:transform .16s,box-shadow .16s}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(75,87,240,.55)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* ===== hero ===== */
+  .hero{position:relative;padding:104px 0 96px;text-align:center}
+  .hero-logo{width:min(360px,72vw);height:auto;margin:0 auto 34px;display:block;
+    filter:drop-shadow(0 18px 50px rgba(59,107,255,.35));animation:float 7s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--sky);
+    background:var(--grad-soft);border:1px solid var(--panel-brd);padding:7px 16px;border-radius:99px;margin-bottom:26px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+  .hero h1{font-family:var(--display);font-size:clamp(2.3rem,6vw,4rem);font-weight:700;
+    letter-spacing:-.02em;line-height:1.06;max-width:16ch;margin:0 auto}
+  .hero p{font-size:clamp(1.02rem,2vw,1.22rem);color:var(--ink-2);max-width:60ch;margin:24px auto 0}
+  .hero-actions{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:99px;
+    font-weight:600;font-size:.98rem;transition:transform .16s,box-shadow .16s,background .16s;border:1px solid transparent}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(75,87,240,.45)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(75,87,240,.6)}
+  .btn-ghost{background:var(--panel);color:var(--ink);border-color:var(--panel-brd)}
+  .btn-ghost:hover{border-color:var(--panel-brd-hi);background:rgba(255,255,255,.05)}
+
+  /* ===== section shell ===== */
+  section{padding:88px 0;position:relative}
+  .section-head{max-width:640px;margin:0 auto 56px;text-align:center}
+  .section-tag{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+  .section-head h2{font-family:var(--display);font-size:clamp(1.8rem,3.8vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin-top:12px}
+  .section-head p{color:var(--ink-3);font-size:1.06rem;margin-top:14px}
+
+  /* ===== features ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .card{position:relative;padding:30px;border:1px solid var(--panel-brd);border-radius:var(--radius);
+    background:var(--panel);backdrop-filter:blur(6px);transition:transform .2s,border-color .2s,box-shadow .2s;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+    background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .2s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(5,10,40,.5)}
+  .card:hover::before{opacity:.8}
+  .ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;margin-bottom:18px;background:var(--grad-soft);border:1px solid var(--panel-brd)}
+  .card h3{font-family:var(--display);font-size:1.14rem;font-weight:600;margin-bottom:8px}
+  .card p{color:var(--ink-3);font-size:.96rem}
+
+  /* ===== work ===== */
+  #work{background:linear-gradient(180deg,transparent,rgba(10,14,30,.5),transparent)}
+  .project{position:relative;border:1px solid var(--panel-brd);border-radius:var(--radius);
+    background:var(--panel);backdrop-filter:blur(6px);padding:38px;margin-bottom:24px;overflow:hidden;transition:border-color .2s,transform .2s}
+  .project:hover{border-color:var(--panel-brd-hi);transform:translateY(-3px)}
+  .project::after{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--grad)}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:6px 13px;border-radius:99px;margin-bottom:16px}
+  .badge-live{background:rgba(34,199,245,.14);color:var(--cyan);border:1px solid rgba(34,199,245,.3)}
+  .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .project h3{font-family:var(--display);font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+  .project .client{color:var(--sky);font-size:.9rem;font-weight:600;margin-top:5px}
+  .project p{color:var(--ink-2);margin-top:16px;max-width:74ch}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{font-size:.78rem;font-weight:500;color:var(--ink-2);background:rgba(255,255,255,.04);
+    border:1px solid var(--panel-brd);padding:6px 13px;border-radius:99px}
+
+  /* ===== stats ===== */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:760px;margin:0 auto}
+  .stat{text-align:center;padding:26px 16px;border:1px solid var(--panel-brd);border-radius:var(--radius);background:var(--panel)}
+  .stat .n{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700}
+  .stat .l{color:var(--ink-3);font-size:.9rem;margin-top:6px}
+  @media(max-width:560px){.stats{grid-template-columns:1fr;gap:12px}}
+
+  /* ===== contact ===== */
+  #contact{text-align:center}
+  .cta{position:relative;max-width:720px;margin:0 auto;padding:60px 34px;border-radius:26px;
+    border:1px solid var(--panel-brd);background:radial-gradient(ellipse at top,rgba(59,107,255,.16),transparent 70%),var(--panel);overflow:hidden}
+  .cta h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,2.8rem);font-weight:700;letter-spacing:-.02em}
+  .cta p{color:var(--ink-2);font-size:1.1rem;margin:16px auto 0;max-width:52ch}
+  .cta-actions{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ===== footer ===== */
+  footer{border-top:1px solid rgba(140,160,255,.08);padding:34px 0;color:var(--ink-4);font-size:.86rem}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:var(--ink-2)}
+  .foot-brand img{height:26px;opacity:.9}
+  .foot-brand strong{font-family:var(--display);font-weight:600;letter-spacing:.04em}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero-logo{animation:none}}
+</style>
+</head>
+<body>
+<div class="aura"></div>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo-mark.png" alt="Comfy Chaos logo" />
+      <span class="brand-name">COMFY&nbsp;<span class="grad-text">CHAOS</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">What we do</a>
+      <a href="#work">Our work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Start a project</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <img class="hero-logo" src="assets/logo-mark.png" alt="Comfy Chaos" />
+    <span class="eyebrow"><span class="dot"></span> Software Development Studio</span>
+    <h1>Clarity in <span class="grad-text">complexity.</span></h1>
+    <p>Comfy Chaos builds practical, well-crafted software that turns messy, real-world operations into tools people actually want to use — designed, built, and shipped end to end.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-primary">See our work →</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-tag grad-text">What we do</span>
+      <h2>Custom software, built end to end.</h2>
+      <p>We take an idea — or an operational headache — and turn it into software that fits how your business actually works.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="ico">🛠️</div>
+        <h3>Web &amp; app development</h3>
+        <p>Modern, fast applications built on current frameworks — responsive, reliable, and ready to scale with you.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">📋</div>
+        <h3>Operations tooling</h3>
+        <p>Training platforms, asset registers, inspection and maintenance systems — software shaped around real workflows.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">🎨</div>
+        <h3>Design &amp; UX</h3>
+        <p>Clean, considered interfaces. We sweat the details so the tools feel obvious and stay out of your way.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico">🚀</div>
+        <h3>Idea to launch</h3>
+        <p>Concept, build and deployment — we take projects from a rough brief all the way to something live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><div class="n grad-text">2</div><div class="l">Platforms live</div></div>
+      <div class="stat"><div class="n grad-text">100%</div><div class="l">Custom-built</div></div>
+      <div class="stat"><div class="n grad-text">End&nbsp;to&nbsp;end</div><div class="l">Design → deploy</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-tag grad-text">Our work</span>
+      <h2>Tools built for real operations.</h2>
+      <p>A growing portfolio of software for real operational needs — starting in the aquatic leisure industry.</p>
+    </div>
+
+    <div class="project reveal">
+      <span class="badge badge-live"><span class="pulse"></span> Live</span>
+      <h3>Waterslide Safety &amp; Competency Training</h3>
+      <div class="client">Built for REST Group</div>
+      <p>A complete online training and certification platform for waterslide operators. Staff work through structured modules covering safety standards, inspection, maintenance and operational procedures, complete quizzes, and earn a verifiable certificate — all aligned to industry standards and WHS requirements.</p>
+      <div class="chips">
+        <span class="chip">Training platform</span>
+        <span class="chip">Quizzes &amp; certification</span>
+        <span class="chip">Next.js</span>
+        <span class="chip">Aquatic safety</span>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <span class="badge badge-live"><span class="pulse"></span> Live</span>
+      <h3>SlideIQ — Digital Slide Map</h3>
+      <div class="client">Waterslide condition &amp; maintenance management</div>
+      <p>A digital slide map and maintenance system that pins defects to their exact location on each waterslide. Issues are risk-scored on a 5×5 matrix, tracked over time through a workflow board, and rolled straight into a live 10-year capital expenditure plan — turning inspections and budgets into one connected picture for engineers and management.</p>
+      <div class="chips">
+        <span class="chip">Asset management</span>
+        <span class="chip">Defect mapping</span>
+        <span class="chip">Risk scoring</span>
+        <span class="chip">Capex planning</span>
+        <span class="chip">Offline-first</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Got something to build?</h2>
+      <p>We're a small studio taking on focused projects. If you've got an operational problem the right software could solve, we'd love to hear about it.</p>
+      <div class="cta-actions">
+        <a href="mailto:anthonydrmic@hotmail.com" class="btn btn-primary">Email us →</a>
+        <a href="mailto:anthonydrmic@hotmail.com?subject=Project%20enquiry" class="btn btn-ghost">Start a project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand"><img src="assets/logo-mark.png" alt="" /> <strong>Comfy Chaos Pty Ltd</strong></span>
+    <span>ABN 86 768 265 615 · Australia · <span style="color:var(--ink-3)">Clarity in complexity</span></span>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
