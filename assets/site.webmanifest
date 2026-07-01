@@ -1,0 +1,14 @@
+{
+  "name": "Comfy Chaos",
+  "short_name": "Comfy Chaos",
+  "description": "Software development studio — clarity in complexity.",
+  "start_url": "../index.html",
+  "scope": "../",
+  "display": "standalone",
+  "background_color": "#05060c",
+  "theme_color": "#05060c",
+  "icons": [
+    { "src": "favicon.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
