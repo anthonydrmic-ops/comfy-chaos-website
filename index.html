@@ -196,7 +196,16 @@
   /* ===== work ===== */
   #work{background:linear-gradient(180deg,transparent,rgba(10,14,30,.5),transparent)}
   .project{position:relative;border:1px solid var(--panel-brd);border-radius:var(--radius);
-    background:var(--panel);backdrop-filter:blur(6px);padding:38px;margin-bottom:24px;overflow:hidden;transition:border-color .2s,transform .2s}
+    background:var(--panel);backdrop-filter:blur(6px);padding:38px;margin-bottom:24px;overflow:hidden;transition:border-color .2s,transform .2s;
+    display:grid;grid-template-columns:1.02fr .98fr;gap:38px;align-items:center}
+  .project-media img{width:100%;height:auto;display:block;border-radius:14px;
+    border:1px solid rgba(140,160,255,.18);box-shadow:0 22px 55px rgba(0,0,0,.5);transition:transform .28s ease}
+  .project:hover .project-media img{transform:scale(1.025)}
+  .project.alt .project-media{order:-1}
+  @media(max-width:880px){
+    .project{grid-template-columns:1fr;gap:26px}
+    .project.alt .project-media{order:0}
+  }
   .project:hover{border-color:var(--panel-brd-hi);transform:translateY(-3px)}
   .project::after{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--grad)}
   .badge{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.1em;
@@ -403,29 +412,39 @@
     </div>
 
     <div class="project reveal">
-      <span class="badge badge-live"><span class="pulse"></span> Live</span>
-      <h3>Waterslide Safety &amp; Competency Training</h3>
-      <div class="client">Built for REST Group</div>
-      <p>A complete online training and certification platform for waterslide operators. Staff work through structured modules covering safety standards, inspection, maintenance and operational procedures, complete quizzes, and earn a verifiable certificate — all aligned to industry standards and WHS requirements.</p>
-      <div class="chips">
-        <span class="chip">Training platform</span>
-        <span class="chip">Quizzes &amp; certification</span>
-        <span class="chip">Next.js</span>
-        <span class="chip">Aquatic safety</span>
+      <div class="project-body">
+        <span class="badge badge-live"><span class="pulse"></span> Live</span>
+        <h3>SlideSure — Waterslide Safety &amp; Competency Training</h3>
+        <div class="client">Built for REST Group</div>
+        <p>A complete online training and certification platform for waterslide operators. Staff work through structured modules covering safety standards, inspection, maintenance and operational procedures, complete quizzes, and earn a verifiable certificate — all aligned to industry standards and WHS requirements.</p>
+        <div class="chips">
+          <span class="chip">Training platform</span>
+          <span class="chip">Quizzes &amp; certification</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">Aquatic safety</span>
+        </div>
+      </div>
+      <div class="project-media">
+        <img src="assets/shot-slidesure.jpg" alt="SlideSure training platform — course page with waterslide hero and program details" width="1860" height="1110" loading="lazy" />
       </div>
     </div>
 
-    <div class="project reveal">
-      <span class="badge badge-live"><span class="pulse"></span> Live</span>
-      <h3>SlideIQ — Digital Slide Map</h3>
-      <div class="client">Waterslide condition &amp; maintenance management</div>
-      <p>A digital slide map and maintenance system that pins defects to their exact location on each waterslide. Issues are risk-scored on a 5×5 matrix, tracked over time through a workflow board, and rolled straight into a live 10-year capital expenditure plan — turning inspections and budgets into one connected picture for engineers and management.</p>
-      <div class="chips">
-        <span class="chip">Asset management</span>
-        <span class="chip">Defect mapping</span>
-        <span class="chip">Risk scoring</span>
-        <span class="chip">Capex planning</span>
-        <span class="chip">Offline-first</span>
+    <div class="project alt reveal">
+      <div class="project-body">
+        <span class="badge badge-live"><span class="pulse"></span> Live</span>
+        <h3>SlideIQ — Digital Slide Map</h3>
+        <div class="client">Waterslide condition &amp; maintenance management</div>
+        <p>A digital slide map and maintenance system that pins defects to their exact location on each waterslide. Issues are risk-scored on a 5×5 matrix, tracked over time through a workflow board, and rolled straight into a live 10-year capital expenditure plan — turning inspections and budgets into one connected picture for engineers and management.</p>
+        <div class="chips">
+          <span class="chip">Asset management</span>
+          <span class="chip">Defect mapping</span>
+          <span class="chip">Risk scoring</span>
+          <span class="chip">Capex planning</span>
+          <span class="chip">Offline-first</span>
+        </div>
+      </div>
+      <div class="project-media">
+        <img src="assets/shot-slideiq.jpg" alt="SlideIQ dashboard — condition index KPIs, interactive slide map with defect pins, and top priority defects" width="1860" height="1110" loading="lazy" />
       </div>
     </div>
   </div>
