@@ -1,49 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Page not found — Comfy Chaos</title>
+<title>Page not found | Comfy Chaos</title>
 <meta name="robots" content="noindex" />
 <meta name="theme-color" content="#05060c" />
-<link rel="icon" href="assets/favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="/assets/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/space-grotesk-latin-wght.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght.woff2" crossorigin />
 <style>
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url(/assets/fonts/space-grotesk-latin-wght.woff2) format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/inter-latin-wght.woff2) format('woff2')}
   :root{
-    --cyan:#22c7f5;--blue:#3b6bff;--violet:#6d3cf2;
+    --cyan:#22c7f5;--sky:#38bdf8;--blue:#3b6bff;--indigo:#4b57f0;--violet:#6d3cf2;
     --grad:linear-gradient(135deg,var(--cyan) 0%,var(--blue) 45%,var(--violet) 100%);
+    --grad-btn:linear-gradient(135deg,#4b57f0,#6d3cf2);
     --bg:#05060c;--ink:#f2f5ff;--ink-2:#b7c0dc;--ink-3:#8791b0;
-    --panel:rgba(255,255,255,.03);--brd:rgba(140,160,255,.12);
-    --font:'Inter',system-ui,sans-serif;--display:'Space Grotesk',var(--font);
+    --r-media:10px;--r-pill:999px;--header-h:70px;
+    --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--display:'Space Grotesk',var(--font);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--font);background:var(--bg);color:var(--ink);min-height:100vh;
-    display:grid;place-items:center;text-align:center;padding:24px;overflow:hidden;position:relative}
-  .aura{position:fixed;inset:0;z-index:-1;pointer-events:none}
-  .aura::before,.aura::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
-  .aura::before{width:560px;height:560px;top:-200px;right:-140px;background:radial-gradient(circle,rgba(34,199,245,.4),transparent 68%)}
-  .aura::after{width:560px;height:560px;bottom:-220px;left:-160px;background:radial-gradient(circle,rgba(124,58,237,.4),transparent 68%)}
-  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  img.mark{width:120px;height:auto;margin:0 auto 30px;display:block;filter:drop-shadow(0 14px 40px rgba(59,107,255,.4));animation:float 7s ease-in-out infinite}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-  h1{font-family:var(--display);font-weight:700;font-size:clamp(3.4rem,12vw,6rem);letter-spacing:-.02em;line-height:1}
-  h2{font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,3vw,1.5rem);margin-top:10px}
-  p{color:var(--ink-3);margin-top:14px;max-width:44ch}
-  a.btn{display:inline-flex;align-items:center;gap:9px;margin-top:32px;padding:14px 28px;border-radius:99px;
-    font-weight:600;background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(75,87,240,.45);transition:transform .16s}
-  a.btn:hover{transform:translateY(-2px)}
-  @media(prefers-reduced-motion:reduce){img.mark{animation:none}}
+  html{color-scheme:dark}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.65;
+    min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr;overflow-x:hidden;
+    background-image:radial-gradient(60% 55% at 72% 0%,rgba(59,107,255,.14),transparent 70%)}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+  a:focus-visible{border-radius:4px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(120,150,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.045) 1px,transparent 1px);
+    background-size:46px 46px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%)}
+  header{border-bottom:1px solid rgba(140,160,255,.08)}
+  .nav{max-width:1200px;margin:0 auto;padding:0 24px;height:var(--header-h);display:flex;align-items:center}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:34px;width:auto;display:block}
+  .brand-name{font-family:var(--display);font-weight:700;font-size:1.12rem;letter-spacing:.06em;white-space:nowrap}
+  main{display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;padding:40px 24px 56px}
+  img.mark{display:block;width:120px;height:auto;margin-bottom:10px;filter:drop-shadow(0 12px 40px rgba(59,107,255,.22))}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(3.4rem,12vw,6rem);letter-spacing:-.02em;line-height:1;color:var(--ink)}
+  h2{font-family:var(--display);font-weight:500;font-size:clamp(1.1rem,3vw,1.5rem);line-height:1.25}
+  p{color:var(--ink-3);max-width:44ch;text-wrap:pretty}
+  a.btn{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:14px 28px;border-radius:var(--r-pill);text-decoration:none;
+    font-weight:600;font-size:.98rem;line-height:1.3;color:#fff;background:var(--grad-btn);
+    box-shadow:inset 0 1px 0 rgba(34,199,245,.55),0 8px 24px rgba(75,87,240,.28);transition:transform .16s,box-shadow .16s}
+  a.btn:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(34,199,245,.7),0 12px 30px rgba(75,87,240,.4)}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="aura"></div>
-<img class="mark" src="assets/logo-mark.png" alt="Comfy Chaos" />
-<h1 class="grad">404</h1>
-<h2>A little too much chaos.</h2>
-<p>The page you're looking for doesn't exist — or has moved. Let's get you back to clarity.</p>
-<a class="btn" href="./">← Back home</a>
+<div class="grid-bg"></div>
+<header>
+  <div class="nav">
+    <a href="/" class="brand" aria-label="Comfy Chaos home">
+      <img src="/assets/mark-96.webp" srcset="/assets/mark-96.webp 96w, /assets/mark-192.webp 192w" sizes="48px" alt="" width="96" height="69" />
+      <span class="brand-name">COMFY&nbsp;<span class="grad-text">CHAOS</span></span>
+    </a>
+  </div>
+</header>
+<main>
+  <img class="mark" src="/assets/mark-720.webp" srcset="/assets/mark-192.webp 192w, /assets/mark-720.webp 720w" sizes="120px" alt="" width="720" height="515" />
+  <h1>404</h1>
+  <h2>A little too much chaos.</h2>
+  <p>The page you're looking for doesn't exist or has moved. Let's get you back to clarity.</p>
+  <a class="btn" href="/"><span aria-hidden="true">&larr;</span> Back home</a>
+</main>
 </body>
 </html>
