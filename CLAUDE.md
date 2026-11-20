@@ -1,6 +1,6 @@
 # Comfy Chaos website: hard rules
 
-Repo: `C:/dev/COMFY CHAOS WEBSITE` (public GitHub repo anthonydrmic-ops/comfy-chaos-website). How we work lives in
+Repo: `C:/dev/REST GROUP/COMFY CHAOS WEBSITE` (in the REST hub, `../CLAUDE.md`) (public GitHub repo anthonydrmic-ops/comfy-chaos-website). How we work lives in
 the brain (`C:/dev/BRAIN`); this file holds only what is true for this project. Running list `docs/STATUS.md`, plan
 and briefs `docs/PLAN.md` (both local only: `docs/` is gitignored because the repo is public).
 
