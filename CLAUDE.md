@@ -10,7 +10,7 @@ and briefs `docs/PLAN.md` (both local only: `docs/` is gitignored because the re
 - GitHub Pages also still builds `main` (a duplicate copy at anthonydrmic-ops.github.io). Turning it off is Anthony's.
 - Static single page (`index.html`, `404.html`, `assets/`). No framework, no build step.
 - Every file in the repo is served publicly by Vercel unless `.vercelignore` lists it.
-- WellSafe is unreleased: link only REST Group's public teaser, never the tool itself, and publish none of its
-  numbers until Adrian says launch. FrontFoot is live at https://frontfoot.restgroup.com.au and may be linked.
+- WellSafe is live (since 2026-11-20) at https://www.restgroup.com.au/wellsafe and may be linked.
+- FrontFoot is live at https://frontfoot.restgroup.com.au and may be linked.
 - Copy: no em dashes, no Oxford commas, minimal hyphenation, Australian English. Real product screenshots only,
   never generated people, logos or testimonials.
